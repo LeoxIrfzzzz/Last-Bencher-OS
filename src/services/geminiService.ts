@@ -1,11 +1,11 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { TimeSlot, DayOfWeek } from "../types";
 
-// The API key is injected into the environment by the platform.
-// According to skills/gemini-api, we should use process.env.GEMINI_API_KEY directly.
-const ai = new GoogleGenAI({ 
-  apiKey: (process as any).env.GEMINI_API_KEY 
-});
+// The API key for deployment should be set as VITE_GEMINI_API_KEY in Netlify/Vercel.
+// In AI Studio, it uses process.env.GEMINI_API_KEY.
+const apiKey = import.meta.env.VITE_GEMINI_API_KEY || (process as any).env.GEMINI_API_KEY;
+
+const ai = new GoogleGenAI({ apiKey });
 
 export async function extractTimetableFromImage(base64Data: string, mimeType: string): Promise<TimeSlot[]> {
   const prompt = `Extract the weekly academic schedule from this image. 
