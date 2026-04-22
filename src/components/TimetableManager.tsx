@@ -84,9 +84,9 @@ export default function TimetableManager({ timetable, setTimetable }: Props) {
 
   return (
     <div className="space-y-8">
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center bg-zinc-900 border border-zinc-800 p-6 md:p-8 rounded-[2.5rem] glow-blue gap-6">
+      <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center bg-zinc-900 border border-zinc-800 p-6 md:p-8 rounded-[2.5rem] glow-blue gap-6">
         <div className="flex items-center gap-5">
-          <div className="w-14 h-14 bg-zinc-950 border border-zinc-700 text-brand-blue rounded-2xl flex items-center justify-center shadow-inner glow-blue">
+          <div className="w-14 h-14 bg-zinc-950 border border-zinc-700 text-brand-blue rounded-2xl flex items-center justify-center shadow-inner glow-blue shrink-0">
             <BookOpen className="w-7 h-7" />
           </div>
           <div>
@@ -94,7 +94,7 @@ export default function TimetableManager({ timetable, setTimetable }: Props) {
             <p className="text-[11px] uppercase font-black text-zinc-500 tracking-[0.4em] mt-1 pl-1">Tactical Planning</p>
           </div>
         </div>
-        <div className="flex items-center gap-4 w-full md:w-auto">
+        <div className="flex flex-wrap items-center gap-3 w-full lg:w-auto">
           {timetable.length > 0 && (
             <button
               onClick={() => {
@@ -107,7 +107,7 @@ export default function TimetableManager({ timetable, setTimetable }: Props) {
                 }
               }}
               className={cn(
-                "flex items-center gap-3 border px-6 py-3.5 rounded-2xl text-[11px] font-black uppercase tracking-widest transition-all shadow-lg active:scale-95",
+                "flex-1 md:flex-none flex items-center justify-center gap-3 border px-6 py-3.5 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all shadow-lg active:scale-95",
                 confirmReset 
                   ? "bg-brand-red text-white border-white/20 glow-red" 
                   : "bg-zinc-950 text-brand-red border-brand-red/20 hover:bg-brand-red/10"
@@ -126,18 +126,18 @@ export default function TimetableManager({ timetable, setTimetable }: Props) {
               disabled={isProcessing}
             />
             <div className={cn(
-              "flex items-center justify-center gap-3 px-6 py-3.5 rounded-2xl text-[11px] font-black uppercase tracking-widest transition-all cursor-pointer border",
+              "flex items-center justify-center gap-3 px-6 py-3.5 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all cursor-pointer border",
               isProcessing 
                 ? "bg-zinc-800 border-zinc-700 text-zinc-500 cursor-wait whitespace-nowrap" 
                 : "bg-zinc-950 hover:bg-zinc-850 border-zinc-800 text-white hover:border-brand-blue shadow-lg active:scale-95 whitespace-nowrap"
             )}>
               {isProcessing ? <Loader2 className="w-4 h-4 animate-spin text-brand-blue" /> : <Sparkles className="w-4 h-4 text-brand-blue" />}
-              {isProcessing ? "Analyzing Sequence..." : "AI Intelligence"}
+              {isProcessing ? "Analyzing..." : "AI Intelligence"}
             </div>
           </label>
           <button
             onClick={() => setIsAdding(true)}
-            className="flex items-center gap-3 bg-brand-blue text-white px-8 py-3.5 rounded-2xl text-[11px] font-black uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-[0_15px_30px_rgba(0,136,255,0.3)] border border-white/10"
+            className="flex-1 md:flex-none flex items-center justify-center gap-3 bg-brand-blue text-white px-8 py-3.5 rounded-2xl text-[10px] font-black uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-[0_15px_30px_rgba(0,136,255,0.3)] border border-white/10"
           >
             <Plus className="w-4 h-4" />
             Add Entry
@@ -219,7 +219,7 @@ export default function TimetableManager({ timetable, setTimetable }: Props) {
         )}
       </AnimatePresence>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {DAYS.map(day => {
           const daySlots = timetable.filter(s => s.day === day).sort((a, b) => a.startTime.localeCompare(b.startTime));
           if (daySlots.length === 0) return null;

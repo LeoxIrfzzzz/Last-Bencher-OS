@@ -142,27 +142,13 @@ export default function Settings({ settings, setSettings }: Props) {
           
           <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-brand-blue/5 rounded-full blur-3xl pointer-events-none group-hover:bg-brand-blue/10 transition-colors duration-500" />
         </section>
-
-        <section className="bg-brand-blue p-6 md:p-8 rounded-3xl shadow-xl flex flex-col justify-between h-48 relative overflow-hidden group border border-white/20">
-          <div className="relative z-10">
-            <h4 className="text-xs font-black uppercase text-blue-100 tracking-widest opacity-70 mb-2">Enterprise Status</h4>
-            <p className="text-2xl font-black text-white leading-tight">Disconnected Mode</p>
-          </div>
-          <p className="relative z-10 text-[10px] text-blue-200 font-bold uppercase tracking-wider">
-            Upgrading to Global Sync coming soon.
-          </p>
-          
-          {/* Decorative shapes */}
-          <div className="absolute top-0 right-0 p-4 opacity-20 transform translate-x-1/4 -translate-y-1/4">
-            <RefreshCw className="w-32 h-32 text-white" />
-          </div>
-        </section>
       </div>
 
+      {/* Credits Section */}
       <div className="col-span-1 md:col-span-2 text-center pt-8 pb-12">
-        <div className="flex flex-col items-center gap-2">
+        <div className="flex flex-col items-center gap-2 opacity-30">
           <div className="h-px w-24 bg-zinc-800" />
-          <p className="text-[10px] font-black text-zinc-600 uppercase tracking-[0.5em]">System Revision 2.4.0</p>
+          <p className="text-[9px] font-black text-zinc-500 uppercase tracking-[0.4em]">Node Established 2026</p>
         </div>
       </div>
     </div>

@@ -174,8 +174,14 @@ export default function App() {
           </motion.div>
         </AnimatePresence>
       </main>
+
+      <footer className="mt-auto py-8 text-center border-t border-zinc-900">
+        <p className="text-[10px] font-black text-zinc-500 uppercase tracking-[0.5em] opacity-40">
+          LastbencherOS <span className="mx-2 text-zinc-800">/</span> Built by Mohammed Irfaan
+        </p>
+      </footer>
     </div>
-    </div>
-  );
+  </div>
+);
 }
 

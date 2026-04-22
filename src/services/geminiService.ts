@@ -3,7 +3,7 @@ import { TimeSlot, DayOfWeek } from "../types";
 
 // The API key for deployment should be set as VITE_GEMINI_API_KEY in Netlify/Vercel.
 // In AI Studio, it uses process.env.GEMINI_API_KEY.
-const apiKey = import.meta.env.VITE_GEMINI_API_KEY || (process as any).env.GEMINI_API_KEY;
+const apiKey = (import.meta as any).env.VITE_GEMINI_API_KEY || (process as any).env.GEMINI_API_KEY;
 
 const ai = new GoogleGenAI({ apiKey });
 
