@@ -95,6 +95,35 @@ export default function Dashboard({ attendance, timetable, settings }: Props) {
 
   return (
     <div className="flex flex-col h-full gap-8">
+      {/* Welcome Hero Section */}
+      <section className="bg-zinc-900 border border-zinc-800 rounded-[2.5rem] p-8 md:p-12 relative overflow-hidden shadow-2xl">
+        <div className="relative z-10">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-1.5 h-6 bg-brand-blue rounded-full glow-blue" />
+            <h1 className="text-3xl md:text-5xl font-black tracking-tighter text-white uppercase italic">
+              Lastbencher<span className="text-brand-blue not-italic">OS</span>
+            </h1>
+          </div>
+          <div className="max-w-2xl">
+            <p className="text-zinc-400 text-lg md:text-xl font-bold leading-tight mb-4">
+              Your intelligent academic assistant and tactical attendance tracker.
+            </p>
+            <p className="text-zinc-500 text-sm md:text-md leading-relaxed font-medium">
+              Designed to optimize your presence strategy and shield your academic performance. 
+              Track lectures, analyze attendance fluctuations, and maintain your target percentage with AI-driven precision.
+            </p>
+          </div>
+        </div>
+        
+        {/* Decorative elements */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-brand-blue/5 rounded-full blur-[120px] -mr-32 -mt-32 pointer-events-none" />
+        <div className="absolute bottom-0 right-0 p-8 opacity-10 hidden md:block">
+          <div className="w-32 h-32 border-4 border-zinc-800 rounded-full flex items-center justify-center">
+            <div className="w-20 h-20 border-2 border-zinc-800 rounded-full" />
+          </div>
+        </div>
+      </section>
+
       <div className="flex items-center gap-3 bg-zinc-900 border border-zinc-800 p-2 rounded-2xl self-start overflow-x-auto max-w-full shadow-lg">
         {(['all', 'month', 'week', 'day'] as const).map((r) => (
           <button
